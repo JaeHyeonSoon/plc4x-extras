@@ -278,7 +278,7 @@ public class OPCUAServer {
         EndpointConfiguration.Builder builder = EndpointConfiguration.newBuilder()
             .setBindAddress("0.0.0.0")
             .setHostname(hostname)
-            .setPath("/plc4x")
+            .setPath("/")
             .setCertificate(certificate.getCertificate())
             .setBindPort(config.getTcpPort())
             .setSecurityMode(MessageSecurityMode.None)
@@ -318,7 +318,7 @@ public class OPCUAServer {
         endpointConfigurations.add(discoveryLocalBuilder.build());
 
         EndpointConfiguration.Builder discoveryLocalPlc4xBuilder = builder.copy()
-            .setPath("/plc4x/discovery")
+            .setPath("/discovery")
             .setHostname("127.0.0.1")
             .setSecurityPolicy(SecurityPolicy.None)
             .setSecurityMode(MessageSecurityMode.None);

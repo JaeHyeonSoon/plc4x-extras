@@ -108,7 +108,7 @@ public class CertificateGenerator<PKCS10CertificateRequest> {
             GeneralNames subjectAltNames = GeneralNames.getInstance(new DERSequence(gnArray));
             certificateBuilder.addExtension(Extension.subjectAlternativeName, false, subjectAltNames);
 
-            ContentSigner sigGen = new JcaContentSignerBuilder("SHA1withRSA").setProvider("BC").build(keyPair.getPrivate());
+            ContentSigner sigGen = new JcaContentSignerBuilder("SHA256withRSA").setProvider("BC").build(keyPair.getPrivate());
 
             X509CertificateHolder certificateHolder = certificateBuilder.build(sigGen);
 
